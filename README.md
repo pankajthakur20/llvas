@@ -7,3 +7,4 @@ Please read all the instructions given in Setup Instruction file carefully.
 Extra instructions:
 1.  Replace "k30.pem" in llvaslocal.sh script file on local machine with your EC2 instance's PEM file.
 2.  Replace "your-public-dns-ipv4" in llvaslocal.sh script file on local machine with your EC2 instance's Public DNS (IPv4)
+3.  Replace "pankaj" in llvaslocal.py file in local machine with your username for local machine (Laptop)
