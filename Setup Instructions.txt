@@ -26,8 +26,10 @@ Step 5:	On the local machine run llvaslocal.sh script.
 
 Step 6:	Use curl to download the graph file from cloud.
 
-	From RPi 1 -----------------> curl 
-	From RPi 2 (Proxy Client)---> curl 
+	From RPi 1 (Direct)---------> time curl -O <url>
+	From RPi 2 (Proxy Client)---> time curl -x proxy-server-ip:3128 -O <url>
+
+Result: Once the contents are cached in squid proxy server (i.e. after 2-3 downloads), the time to download the file from URL will fall drastically compared to the download time taken by RPi 1.
 
 
 
