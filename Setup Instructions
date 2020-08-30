@@ -1,0 +1,37 @@
+Step 1:	Setup one local server machine, one remote EC2 instance, and one Web Server as documented below:
+
+	1.	Local machine
+	------------------------------
+	On the local Ubuntu 20.04 machine, create a directory llvaslocal in the user's home directory with the following files and directory:
+	1.	an empty directory attendance
+	2.	an empty directory archive 
+	2.	PEM file to ssh the EC2 instance
+	3.	the file llvaslocal.py
+	4.	the shell script llvaslocal.sh	
+
+	2.	AWS Cloud machine (free tier t2.micro)
+	-------------------------------
+	On the remote Ubuntu Server 18.04 based EC2 instance, create a directory llvascloud in the ubuntu user's home directory with the  following files and directory::
+	1.	an empty directory attendance 
+	2.	the file llvascloud.py 
+	3.	the file haarcascade_frontalface_default.xml
+	
+
+
+Step 2: Setup an nginx based Web Server utilising a Global IP address.
+
+
+Step3:	Setup a squid proxy server on the local server machine. Also setup isc-dhcp-server DHCP server on the same server machine.
+
+Step 4:	Connect one Raspberry Pi SBC (RPi 2) which is using Ubuntu 20.04 Server as its OS to the ETHERNET port of proxy server using UTP CAT6 cable. It will act as DHCP client as well as proxy client.
+
+Step 5:	Connect another Raspberry Pi SBC (RPi 1) which is using Ubuntu 20.04 Server as its OS and the proxy server to Internet through same gateway (Smartphone's hotspot or any WIFI Access Point or another ETHERNET port os proxy server, if any, connected to Internet) to Internet over WIFI.
+
+Step 6:	On the local server machine run llvaslocal.sh script.
+
+Step 7:	Download the data from Web server both on RPi1, RPi2 and then find download latency both on RPi1 and RPi2.
+
+Result: Once the contents are cached in squid proxy server, the time to download the files from Web Server will fall drastically compared to the download time as taken by RPi 1.
+
+
+
