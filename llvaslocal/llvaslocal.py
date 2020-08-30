@@ -1,3 +1,4 @@
+#!/bin/python
 import cv2
 import glob
 import os
@@ -8,7 +9,7 @@ import time
 #s=int(input("Sleep Time : "))
 n=5
 s=2
-path='/home/pankaj/llvaslocal/attendance/'
+path='~/llvaslocal/attendance/'
 ext='.jpg'
 i=1
 while i <= n:
@@ -16,7 +17,11 @@ while i <= n:
     filename = time.strftime("%Y%m%d%H%M%S")
     r='rgb'
     fullpath="%s%s%s%s" %(path,filename,r,ext)
-    webcam = cv2.VideoCapture(0)
+    #for laptop webcam
+    webcam = cv2.VideoCapture(0, cv2.CAP_V4L)
+    #for IP camera
+    #webcam = cv2.VideoCapture("rtsp://username:password@camera-ip-address:port)
+
     ret, frame = webcam.read()
     #print(ret)
     cv2.imwrite(fullpath, img=frame)
